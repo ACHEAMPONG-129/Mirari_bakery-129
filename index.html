@@ -55,6 +55,24 @@
             width: 100%;
             bottom: 0;
         }
+        .slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.fade {
+  animation: fade 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
     </style>
 </head>
 <body>
@@ -85,7 +103,7 @@
         <h2>Menu</h2>
         <ul>
             <li>Cakes: Chocolate, Vanilla, Red Velvet, Custom Orders</li>
-            <li>Pastries: Croissants, Danish, Eclairs</li>
+            <li>Pastries: Meat pie, Rockies, Cookies</li>
             <li>Breads: Butter Bread, Whole Wheat, Sugar Bread</li>
             <li>Specialties: Seasonal Items, Gluten-Free Options</li>
         </ul>
@@ -96,7 +114,24 @@
     </section>
     <section id="gallery" class="gallery">
         <h2>Gallery</h2>
-        <img src="workspace/chocolate%20cake.jpg" alt="">
+        <section id="gallery" class="gallery">
+  <h2>Gallery</h2>
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="images/cake-chocolate.png" alt="Chocolate Cake" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/bread.png" alt="Fresh Bread" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="images/cookies.png" alt="Cookies" style="width:100%">
+    </div>
+
+  </div>
+</section>
 
     </section>
     <section id="events">
@@ -115,5 +150,21 @@
     <footer>
         <p>&copy;2019 Mirari Bakery. All Rights Reserved.</p>
     </footer>
+    <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+    </script>
 </body>
 </html>
